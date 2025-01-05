@@ -6,7 +6,7 @@ from model import EnhancedDeepConvNet
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(device)
 
-model_path = '/content/drive/MyDrive/model_full.pth'
+model_path = '/model/model_full.pth'
 model = EnhancedDeepConvNet()
 model.load_state_dict(torch.load(model_path, map_location=torch.device(device)))
 model.eval()
@@ -19,7 +19,7 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
 ])
 
-image_path = '/content/drive/MyDrive/images.jpg' 
+image_path = '/anyimagepath/images.jpg' 
 image = Image.open(image_path).convert('RGB')  
 input_tensor = transform(image).unsqueeze(0)  
 
